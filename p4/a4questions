@@ -1,0 +1,105 @@
+Eric Eichstadt Mike Fortman:
+Section 2 Section 2:
+
+Assignment 4 questions.
+Do not remove the questions from this file.
+Please indent your answers.
+
+For ALL cache simulations, use a capacity of 16384 bytes for both 
+the I-cache and the D-cache.
+
+cache1D
+-------
+
+Describe how you tested your code to verify that it works.
+    To test our makefile we created a copy of cache1D.c. Next we added an extra target in our makefile to test the copy. In our copy of cache1D.c we added a print statement that printed every element of the array in the for loop so that we would be able to tell if it compiled correctly, and that the array was created successfully. We then ran the make file to compile the copy of cache1D.c, ran the copyof cache1D.c and checked for the print statement to see if it compiled correctly.
+
+What do you get from running pin with a block size of 4 bytes?
+    Instruction cache misses:	        5949
+    Instruction cache references:	695748
+    Data cache misses:		        107263
+    Data cache references:		646558
+
+What is the hit ratio for the I-cache with a block size of 4 bytes?
+    (695748 - 5949) / (695748) = .9914 = 99.14%
+
+What is the hit ratio for the D-cache with a block size of 4 bytes?
+    (646558 - 107263) / (646558) = .8341 = 83.41% 
+
+What do you get from running pin with a block size of 32 bytes?
+    Instruction cache misses:	        1185
+    Instruction cache references:	695748
+    Data cache misses:		        15019
+    Data cache references:		646558
+
+What is the hit ratio for the I-cache with a block size of 32 bytes?
+     (695748 - 1185)/ (695748) = .9983 = 99.83%
+
+What is the hit ratio for the D-cache with a block size of 32 bytes?
+     (646558 - 15019) / (646558) = .9768 = 97.68%
+
+What do you get from running pin with a block size of 64 bytes?
+    Instruction cache misses:	        704
+    Instruction cache references:	695748
+    Data cache misses:		        9785
+    Data cache references:		646558
+
+What is the hit ratio for the I-cache with a block size of 64 bytes?
+    (695748 - 704) / (695748) = .9990 = 99.90%
+
+What is the hit ratio for the D-cache with a block size of 64 bytes?
+    (646558 - 9785) / (646558) = .9849 = 98.49%
+
+Which block size is best for the I-cache?  Why?
+    The 64 bit block size is best for the I-cache, because it has the best hit ratio, and the smallest
+    miss ratio.
+
+Which block size is best for the D-cache?  Why? In what way does the block 
+  size affect the hit ratio for this program?
+    The 64 bit block size is best for the D-cache, because it has the best hit ratio, and the smallest
+    miss ratio. As the block size gets bigger the hit ratio gets higher and therefore better.
+  
+
+cache2Drows
+-----------
+
+What do you get from running pin with a block size of 64 bytes?
+    Instruction cache misses:	        705
+    Instruction cache references:	16616768
+    Data cache misses:		        106726
+    Data cache references:		12061561
+
+What is the hit ratio for the I-cache with a block size of 64 bytes?
+    (16616768 - 705) / (16616768) = .9999 = 99.99%
+
+What is the hit ratio for the D-cache with a block size of 64 bytes?
+    (12061561 - 106726) / (12061561) = .9912 = 99.12% 
+
+cache2Dcols
+-----------
+
+What do you get from running pin with a block size of 64 bytes?
+    Instruction cache misses:	        705
+    Instruction cache references:	16599268
+    Data cache misses:		        1507654
+    Data cache references:		12049061
+
+What is the hit ratio for the I-cache with a block size of 64 bytes?
+    (16599258 - 705) / (16599258) = .9999 = 99.99%
+
+What is the hit ratio for the D-cache with a block size of 64 bytes?
+    (12049061 - 1507654) / (12049061) = .8749 = 87.49%
+
+Comparison of cache2Drows and cache2Dcols
+-----------------------------------------
+
+Compare the performance (hit ratios) of the I-cache for these 2 programs.
+Justify your statistics.
+    The performance for the two are essentially identical with a 99.99% hit ratio. This is because the
+    I-cache holds only the machine code instructions which performs the same number of operations.
+ 
+Compare the performance (hit ratios) of the D-cache for these 2 programs.
+Explain any differences.
+    The performance for cache2Drows is much better than cache2Dcols for the D-cache. This is because
+C uses a row major ordering so when iterating through the array by columns it has to jump around in memory a lot more, while when it iterates by row the data it needs is much closer to each other.
+

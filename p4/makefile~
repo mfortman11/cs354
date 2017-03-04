@@ -1,0 +1,6 @@
+all cache1D cache1Dcopy
+
+cache1D: cache1D.c
+	gcc -o cache1D cache1D.c -Wall -m32
+cache1Dcopy: cache1Dcopy.c
+	gcc -o cache1Dcopy cache1Dcopy.c -Wall -m32
